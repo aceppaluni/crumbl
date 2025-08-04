@@ -35,7 +35,7 @@ In a separate terminal execute:
 https://sepolia.etherscan.io/address/0x0e990E8B9D44E4A2A2c9a72db71438ad78A98581#code
 https://sepolia.etherscan.io/address/0xd5172D0C3d8eF49947673FB81d2Cd63761dc518f#code
 
-##Place your vote!
+## Place your vote
 https://vercel.com/angelinas-projects-e50932cf/crumbl/HSZsKW6E8kP4j1LaTGVjZfbMHHL6
 
 ## Demo
