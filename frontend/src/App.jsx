@@ -153,7 +153,7 @@ function App() {
                 <button className='vote__button' onClick={() => castVote(index + 1)}>
                   <ArrowUpwardIcon /> {/**need to add hasVoted */}
                 </button>
-                <p style={{paddingLeft: 5, marginBottom: 8}}>Votes: {/*voteCounts[cookie.tokenId] || 0*/ voteCounts[index + 1] ?? 0 }</p>
+                <p style={{paddingLeft: 5, marginBottom: 8}}>Votes: {/*voteCounts[cookie.tokenId] || 0*/ voteCounts[index + 1] ?? voteCounts[index] }</p>
               </div>
                   
             
