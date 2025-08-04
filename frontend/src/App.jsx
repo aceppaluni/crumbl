@@ -105,9 +105,10 @@ function App() {
     //User casts vote 
     console.log('attempting to cast vote...')
     console.log("tokenId:", tokenId, typeof tokenId);
-    let transaction = await cookieVoteWithSigner.vote(tokenId)
-    await transaction.wait()
-
+    let transaction = await cookieVoteWithSigner.vote(tokenId);
+    console.log('vote casted');
+    //await transaction.wait()
+    await provider.waitForTransaction(transaction.hash);
 
     console.log('getting vote count...')
     //Fetch update vote count
