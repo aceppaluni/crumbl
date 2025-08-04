@@ -70,6 +70,7 @@ function App() {
     const totalSupply = await cookieNFT.totalSupply()
     console.log("total", totalSupply.toString())
     const cookies = []
+    const voteCountsTemp = {}
 
     for(let i = 1; i <= totalSupply; i++) {
       const uri = await cookieNFT.tokenURI(i);
@@ -77,11 +78,16 @@ function App() {
       const metadata = await response.json()
       cookies.push(metadata)
       console.log('metad', metadata)
+
+      const voteCount = await cookieVote.getVotes(i)
+      voteCountsTemp[i] = Number(voteCount)
       
     }
     const tokenUri = await cookieNFT.tokenURI(1);
     console.log("tURI", tokenUri);
     setCookies(cookies) 
+
+    setVoteCounts(voteCountsTemp)
 
     window.ethereum.on('accountsChanged', async () => {
       const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
@@ -153,7 +159,7 @@ function App() {
                 <button className='vote__button' onClick={() => castVote(index + 1)}>
                   <ArrowUpwardIcon /> {/**need to add hasVoted */}
                 </button>
-                <p style={{paddingLeft: 5, marginBottom: 8}}>Votes: {/*voteCounts[cookie.tokenId] || 0*/ voteCounts[index + 1] ?? voteCounts[index] }</p>
+                <p style={{paddingLeft: 5, marginBottom: 8}}>Votes: {voteCounts[index + 1] ?? 0 }</p>
               </div>
                   
             
