@@ -60,9 +60,9 @@ function App() {
     console.log('contract address:', cookieNFT.target);  // ethers v6 uses `.target`
     console.log("ABI methods:", CookieNFT.map(f => f.name))
 
-    console.log("Vote contract from env:", import.meta.env.VITE_CONTRACT_COOKIE_VOTE);
     const cookieVote = new Contract(config[network.chainId].cookieVote.address, CookieVote, provider)
-    //console.log("Vote contract from env:", import.meta.env.VITE_CONTRACT_COOKIE_VOTE);
+    console.log("Vote contract from env:", import.meta.env.VITE_CONTRACT_VOTING);
+    
     setCookieVote(cookieVote)
 
     console.log('contract address:', cookieVote.target);
@@ -117,10 +117,10 @@ function App() {
     await provider.waitForTransaction(transaction.hash);
 
     console.log('getting vote count...')
+    console.log(`Token ID ${i} has ${voteCount.toString()} votes`);
+
     //Fetch update vote count
     const upDatedVoteCount = await cookieVote.getVotes(tokenId)
-    //setVoteCount(upDatedVoteCount.toNumber())
-    //setVoteCounts(prev => ({...prev, [tokenId]: upDatedVoteCount.toNumber()}))
     setVoteCounts(prev => ({...prev, [tokenId]: Number(upDatedVoteCount)}));
 
     //set hasvoted to true for address
