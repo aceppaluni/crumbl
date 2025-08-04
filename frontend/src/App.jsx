@@ -57,6 +57,7 @@ function App() {
 
     const cookieNFT = new Contract(config[network.chainId].cookieNFT.address, CookieNFT, provider)
     console.log("NFT contract from env:", import.meta.env.VITE_CONTRACT_COOKIE_NFT);
+    
     console.log('contract address:', cookieNFT.target);  // ethers v6 uses `.target`
     console.log("ABI methods:", CookieNFT.map(f => f.name))
 
