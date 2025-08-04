@@ -5,7 +5,7 @@ import { Web3Provider}  from '@ethersproject/providers';
 import Navigation from './components/Navigation';
 import Search from './components/Search';
 
-import config from '../config.json'
+//import config from '../config.json'
 
 import CookieNFT from '../abis/CookieNFT.json'
 import CookieVote from '../abis/CookieVote.json'
@@ -27,15 +27,16 @@ const config = {
       address: import.meta.env.VITE_CONTRACT_COOKIE_NFT,
     },
     cookieVote: {
-      address: import.meta.env.VITE_CONTRACT_COOKIE_VOTE,
+      address: import.meta.env.VITE_CONTRACT_VOTING,
     }
   }
 };
 
+
 function App() {
 
   const [provider, setProvider] = useState(null)
-  const [account, setAccount] = useState(null);
+  const [account, setAccount] = useState(null); 
 
   const [cookies, setCookies ] = useState([])
   const [cookie, setCookie] = useState([])
@@ -51,12 +52,19 @@ function App() {
     
     const network = await provider.getNetwork()
 
+    console.log("Using contract config:", config[network.chainId]);
+    console.log("Chain ID from provider:", network.chainId);
+
     const cookieNFT = new Contract(config[network.chainId].cookieNFT.address, CookieNFT, provider)
+    console.log("NFT contract from env:", import.meta.env.VITE_CONTRACT_COOKIE_NFT);
     console.log('contract address:', cookieNFT.target);  // ethers v6 uses `.target`
     console.log("ABI methods:", CookieNFT.map(f => f.name))
 
+    console.log("Vote contract from env:", import.meta.env.VITE_CONTRACT_COOKIE_VOTE);
     const cookieVote = new Contract(config[network.chainId].cookieVote.address, CookieVote, provider)
+    //console.log("Vote contract from env:", import.meta.env.VITE_CONTRACT_COOKIE_VOTE);
     setCookieVote(cookieVote)
+
     console.log('contract address:', cookieVote.target);
 
     const totalSupply = await cookieNFT.totalSupply()
