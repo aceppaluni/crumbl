@@ -21,6 +21,17 @@ import heart from '../src/assets/react.svg';
 
 import './App.css'
 
+const config = {
+  11155111: { // Sepolia chain ID
+    cookieNFT: {
+      address: import.meta.env.VITE_CONTRACT_COOKIE_NFT,
+    },
+    cookieVote: {
+      address: import.meta.env.VITE_CONTRACT_COOKIE_VOTE,
+    }
+  }
+};
+
 function App() {
 
   const [provider, setProvider] = useState(null)
