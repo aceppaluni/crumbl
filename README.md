@@ -36,7 +36,7 @@ https://sepolia.etherscan.io/address/0x0e990E8B9D44E4A2A2c9a72db71438ad78A98581#
 https://sepolia.etherscan.io/address/0xd5172D0C3d8eF49947673FB81d2Cd63761dc518f#code
 
 ## Place your vote
-https://vercel.com/angelinas-projects-e50932cf/crumbl/HSZsKW6E8kP4j1LaTGVjZfbMHHL6
+https://crumbl-git-main-angelinas-projects-e50932cf.vercel.app/
 
 ## Demo
 <img width="948" height="455" alt="2025-07-24" src="https://github.com/user-attachments/assets/4cd4e1e2-36f6-49e6-935d-b798a769eb4b" />
