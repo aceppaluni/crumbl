@@ -36,6 +36,8 @@ https://sepolia.etherscan.io/address/0x0e990E8B9D44E4A2A2c9a72db71438ad78A98581#
 https://sepolia.etherscan.io/address/0xd5172D0C3d8eF49947673FB81d2Cd63761dc518f#code
 
 ## Place your vote
+Please make sure you are connected to Sepolia to place a vote.
+
 https://crumbl-wheat.vercel.app/
 
 ## Demo
